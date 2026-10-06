@@ -1,0 +1,51 @@
+server:
+  port: ${STORAGE_SERVICE_PORT:8082}
+
+spring:
+  datasource:
+    url: ${STORAGE_DB_URL:jdbc:postgresql://localhost:5434/storage_db?sslmode=disable}
+    username: ${STORAGE_DB_USERNAME}
+    password: ${STORAGE_DB_PASSWORD}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/dealership}
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.yaml
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  storage:
+    default-warehouse-employee-id: ${DEFAULT_WAREHOUSE_EMPLOYEE_ID:00000000-0000-0000-0000-000000000001}
+
+logging:
+  pattern:
+    level: "%5p [traceId=%X{traceId:-}]"
+
+grpc:
+  server:
+    port: ${STORAGE_GRPC_PORT:9090}

@@ -1,0 +1,205 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-order-tables
+      author: marina
+      changes:
+        - createTable:
+            tableName: Users
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Phone
+                  type: varchar(50)
+              - column:
+                  name: Email
+                  type: varchar(100)
+              - column:
+                  name: Role
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: InStockOrders
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CustomerId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ManagerId
+                  type: uuid
+              - column:
+                  name: CarId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Status
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: FinalPrice
+                  type: decimal(10,2)
+
+        - createTable:
+            tableName: TestDriveRequest
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CustomerId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CarId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: StartAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: CustomOrder
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CustomerId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ManagerId
+                  type: uuid
+              - column:
+                  name: ModelKey
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Status
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: FinalPrice
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column:
+                  name: CustomOrderId
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ComponentType
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ComponentOptionId
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: CustomOrder_SelectedOptions
+            baseColumnNames: CustomOrderId
+            referencedTableName: CustomOrder
+            referencedColumnNames: Id
+            constraintName: FK_CustomOrderSelectedOptions_CustomOrder

@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-assembly-order
+      author: marina
+      changes:
+        - createTable:
+            tableName: AssemblyOrder
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: SourceOrderId
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: SourceOrderType
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: CarId
+                  type: uuid
+
+              - column:
+                  name: CarModelId
+                  type: uuid
+
+              - column:
+                  name: WarehouseEmployeeId
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: Status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: AssemblyOrder_RequiredComponents
+            columns:
+              - column:
+                  name: AssemblyOrderId
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: RequiredComponentOptionId
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: AssemblyOrder_RequiredComponents
+            baseColumnNames: AssemblyOrderId
+            referencedTableName: AssemblyOrder
+            referencedColumnNames: Id
+            constraintName: FK_AssemblyOrderRequiredComponents_AssemblyOrder

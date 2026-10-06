@@ -1,0 +1,53 @@
+server:
+  port: ${ORDER_SERVICE_PORT:8080}
+
+spring:
+  datasource:
+    url: ${ORDER_DB_URL:jdbc:postgresql://localhost:5433/order_db?sslmode=disable}
+    username: ${ORDER_DB_USERNAME}
+    password: ${ORDER_DB_PASSWORD}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/dealership}
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.yaml
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  pattern:
+    level: "%5p [traceId=%X{traceId:-}]"
+
+grpc:
+  client:
+    storage-car-service:
+      address: static://${STORAGE_GRPC_HOST:localhost}:${STORAGE_GRPC_PORT:9090}
+      negotiation-type: plaintext
+
+app:
+  storage-grpc:
+    timeout-ms: ${STORAGE_GRPC_TIMEOUT_MS:5000}

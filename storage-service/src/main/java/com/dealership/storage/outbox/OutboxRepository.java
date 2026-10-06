@@ -1,0 +1,10 @@
+package com.dealership.storage.outbox;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface OutboxRepository extends JpaRepository<OutboxMessage, UUID> {
+    List<OutboxMessage> findTop50ByPublishedFalseOrderByCreatedAtAsc();
+}

@@ -1,0 +1,18 @@
+plugins {
+    id 'base'
+    id 'idea'
+    id 'org.springframework.boot' version '3.5.12' apply false
+    id 'io.spring.dependency-management' version '1.1.7' apply false
+}
+
+tasks.register('buildMicroservices') {
+    group = 'build'
+    description = 'Builds all dealership microservices.'
+    dependsOn ':order-service:build', ':storage-service:build'
+}
+
+tasks.register('integrationTest') {
+    group = 'verification'
+    description = 'Runs integration tests for all dealership microservices.'
+    dependsOn ':order-service:integrationTest', ':storage-service:integrationTest'
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'java-template'
+include 'order-service'
+include 'storage-service'
+include 'grpc-contract'

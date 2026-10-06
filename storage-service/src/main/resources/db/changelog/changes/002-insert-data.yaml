@@ -1,0 +1,453 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-insert-data
+      author: marina
+      changes:
+        - insert:
+            tableName: CarModel
+            columns:
+              - column: { name: Id, value: "22222222-2222-2222-2222-222222222221" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ModelName, value: "Porsche 911 Carrera 4 GTS" }
+              - column: { name: BasePrice, valueNumeric: 18500000.00 }
+
+        - insert:
+            tableName: CarModel
+            columns:
+              - column: { name: Id, value: "22222222-2222-2222-2222-222222222222" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ModelName, value: "Mercedes-AMG C 63 S E Performance" }
+              - column: { name: BasePrice, valueNumeric: 12900000.00 }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "WHEELS" }
+              - column: { name: AdditionalPrice, valueNumeric: 0.00 }
+              - column: { name: Name, value: "17in Standard" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444442" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "WHEELS" }
+              - column: { name: AdditionalPrice, valueNumeric: 95000.00 }
+              - column: { name: Name, value: "19in M Sport" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+              - column: { name: AdditionalPrice, valueNumeric: 0.00 }
+              - column: { name: Name, value: "Automatic 8AT" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444444" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+              - column: { name: AdditionalPrice, valueNumeric: -30000.00 }
+              - column: { name: Name, value: "Manual 6MT" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "STEERING_WHEEL" }
+              - column: { name: AdditionalPrice, valueNumeric: 0.00 }
+              - column: { name: Name, value: "Sport Leather Standard" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444446" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "STEERING_WHEEL" }
+              - column: { name: AdditionalPrice, valueNumeric: 25000.00 }
+              - column: { name: Name, value: "M Sport Heated" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "INTERIOR" }
+              - column: { name: AdditionalPrice, valueNumeric: 0.00 }
+              - column: { name: Name, value: "Fabric Graphite" }
+
+        - insert:
+            tableName: ComponentOptions
+            columns:
+              - column: { name: Id, value: "44444444-4444-4444-4444-444444444448" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: ComponentType, value: "INTERIOR" }
+              - column: { name: AdditionalPrice, valueNumeric: 110000.00 }
+              - column: { name: Name, value: "Leather Dakota" }
+
+        - insert:
+            tableName: BaseConfigurations
+            columns:
+              - column: { name: Id, value: "33333333-3333-3333-3333-333333333331" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+
+        - insert:
+            tableName: BaseConfigurations
+            columns:
+              - column: { name: Id, value: "33333333-3333-3333-3333-333333333332" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999991" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333331" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: ComponentType, value: "WHEELS" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999992" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333331" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999993" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333331" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: ComponentType, value: "STEERING_WHEEL" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999994" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333331" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: ComponentType, value: "INTERIOR" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999995" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333332" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: ComponentType, value: "WHEELS" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999996" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333332" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999997" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333332" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: ComponentType, value: "STEERING_WHEEL" }
+
+        - insert:
+            tableName: BaseComponentOptions
+            columns:
+              - column: { name: Id, value: "99999999-9999-9999-9999-999999999998" }
+              - column: { name: BaseConfigurationId, value: "33333333-3333-3333-3333-333333333332" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: ComponentType, value: "INTERIOR" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888881" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888882" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888883" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444442" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888884" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888885" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888886" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444444" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888887" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444444" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888888" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-888888888889" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-88888888888a" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444446" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-88888888888b" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-88888888888c" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column: { name: Id, value: "88888888-8888-8888-8888-88888888888d" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444448" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: CarDetails
+            columns:
+              - column: { name: Id, value: "55555555-5555-5555-5555-555555555551" }
+              - column: { name: BodyType, value: "COUPE" }
+              - column: { name: FuelType, value: "GASOLINE" }
+              - column: { name: EnginePower, valueNumeric: 480 }
+              - column: { name: EngineCapacity, valueNumeric: 3.00 }
+              - column: { name: Transmission, value: "AUTOMATIC" }
+              - column: { name: DriveType, value: "AWD" }
+              - column: { name: Color, value: "SILVER" }
+
+        - insert:
+            tableName: CarDetails
+            columns:
+              - column: { name: Id, value: "55555555-5555-5555-5555-555555555552" }
+              - column: { name: BodyType, value: "COUPE" }
+              - column: { name: FuelType, value: "GASOLINE" }
+              - column: { name: EnginePower, valueNumeric: 480 }
+              - column: { name: EngineCapacity, valueNumeric: 3.00 }
+              - column: { name: Transmission, value: "AUTOMATIC" }
+              - column: { name: DriveType, value: "AWD" }
+              - column: { name: Color, value: "RED" }
+
+        - insert:
+            tableName: CarDetails
+            columns:
+              - column: { name: Id, value: "55555555-5555-5555-5555-555555555553" }
+              - column: { name: BodyType, value: "SEDAN" }
+              - column: { name: FuelType, value: "HYBRID" }
+              - column: { name: EnginePower, valueNumeric: 680 }
+              - column: { name: EngineCapacity, valueNumeric: 2.00 }
+              - column: { name: Transmission, value: "AUTOMATIC" }
+              - column: { name: DriveType, value: "AWD" }
+              - column: { name: Color, value: "BLACK" }
+
+        - insert:
+            tableName: Car
+            columns:
+              - column: { name: Id, value: "66666666-6666-6666-6666-666666666661" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+              - column: { name: CarDetailsId, value: "55555555-5555-5555-5555-555555555551" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T09:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T09:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Price, valueNumeric: 18990000.00 }
+              - column: { name: Brand, value: "PORSCHE" }
+              - column: { name: Available, valueBoolean: true }
+              - column: { name: TestDriveEnabled, valueBoolean: true }
+
+        - insert:
+            tableName: Car
+            columns:
+              - column: { name: Id, value: "66666666-6666-6666-6666-666666666662" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+              - column: { name: CarDetailsId, value: "55555555-5555-5555-5555-555555555552" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T09:10:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T09:10:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Price, valueNumeric: 19650000.00 }
+              - column: { name: Brand, value: "PORSCHE" }
+              - column: { name: Available, valueBoolean: true }
+              - column: { name: TestDriveEnabled, valueBoolean: false }
+
+        - insert:
+            tableName: Car
+            columns:
+              - column: { name: Id, value: "66666666-6666-6666-6666-666666666663" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+              - column: { name: CarDetailsId, value: "55555555-5555-5555-5555-555555555553" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T09:20:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T09:20:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Price, valueNumeric: 13250000.00 }
+              - column: { name: Brand, value: "MERCEDES-AMG" }
+              - column: { name: Available, valueBoolean: true }
+              - column: { name: TestDriveEnabled, valueBoolean: true }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777771" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Brake Pads Front" }
+              - column: { name: Price, valueNumeric: 18000.00 }
+              - column: { name: Description, value: "Front axle brake pads set" }
+              - column: { name: Manufacturer, value: "Brembo" }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777772" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Oil Filter" }
+              - column: { name: Price, valueNumeric: 2200.00 }
+              - column: { name: Description, value: "Engine oil filter cartridge" }
+              - column: { name: Manufacturer, value: "Mann Filter" }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777773" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Air Filter" }
+              - column: { name: Price, valueNumeric: 3500.00 }
+              - column: { name: Description, value: "Engine air filter element" }
+              - column: { name: Manufacturer, value: "Bosch" }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777774" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Brake Disc Front" }
+              - column: { name: Price, valueNumeric: 26000.00 }
+              - column: { name: Description, value: "Ventilated front brake disc" }
+              - column: { name: Manufacturer, value: "Brembo" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777771" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb2" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777771" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb3" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777772" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb4" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777772" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb5" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777773" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222221" }
+
+        - insert:
+            tableName: SparePart_CarModel
+            columns:
+              - column: { name: Id, value: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb6" }
+              - column: { name: SparePartId, value: "77777777-7777-7777-7777-777777777774" }
+              - column: { name: CarModelId, value: "22222222-2222-2222-2222-222222222222" }

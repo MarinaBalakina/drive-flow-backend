@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-storage-messaging
+      author: marina
+      changes:
+        - createTable:
+            tableName: outbox_messages
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: exchangeName
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: routingKey
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: eventType
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payload
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: createdAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: publishedAt
+                  type: timestamp
+              - column:
+                  name: published
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: processed_messages
+            columns:
+              - column:
+                  name: eventId
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: eventType
+                  type: varchar(255)
+              - column:
+                  name: orderId
+                  type: uuid
+              - column:
+                  name: traceId
+                  type: varchar(255)
+              - column:
+                  name: processedAt
+                  type: timestamp

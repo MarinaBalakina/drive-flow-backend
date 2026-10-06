@@ -1,0 +1,334 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-tables
+      author: marina
+      changes:
+        - createTable:
+            tableName: CarDetails
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: BodyType
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: FuelType
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EnginePower
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EngineCapacity
+                  type: decimal(5,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Transmission
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: DriveType
+                  type: varchar(200)
+              - column:
+                  name: Color
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: CarModel
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ModelName
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: BasePrice
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: ComponentOptions
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ComponentType
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: AdditionalPrice
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Name
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: SpareParts
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Price
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Description
+                  type: varchar(250)
+              - column:
+                  name: Manufacturer
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: BaseConfigurations
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CarModelId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_BaseConfigurations_CarModel
+                    references: '"CarModel"("Id")'
+                    unique: true
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: BaseComponentOptions
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: BaseConfigurationId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_BaseComponentOptions_BaseConfiguration
+                    references: '"BaseConfigurations"("Id")'
+              - column:
+                  name: ComponentOptionId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_BaseComponentOptions_ComponentOption
+                    references: '"ComponentOptions"("Id")'
+              - column:
+                  name: ComponentType
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: Car
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: CarModelId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_Car_CarModel
+                    references: '"CarModel"("Id")'
+              - column:
+                  name: CarDetailsId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_Car_CarDetails
+                    references: '"CarDetails"("Id")'
+                    unique: true
+              - column:
+                  name: CreatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: UpdatedAt
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Removed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Price
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Brand
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Available
+                  type: boolean
+              - column:
+                  name: TestDriveEnabled
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+
+        - createTable:
+            tableName: SparePart_CarModel
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: SparePartId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_SparePartCarModel_SparePart
+                    references: '"SpareParts"("Id")'
+              - column:
+                  name: CarModelId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_SparePartCarModel_CarModel
+                    references: '"CarModel"("Id")'
+
+        - createTable:
+            tableName: ComponentOption_CompatibleModel
+            columns:
+              - column:
+                  name: Id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ComponentOptionId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_ComponentOptionCompatibleModel_ComponentOption
+                    references: '"ComponentOptions"("Id")'
+              - column:
+                  name: CarModelId
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_ComponentOptionCompatibleModel_CarModel
+                    references: '"CarModel"("Id")'

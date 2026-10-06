@@ -1,0 +1,158 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-stock-and-trace
+      author: marina
+      changes:
+        - addColumn:
+            tableName: AssemblyOrder
+            columns:
+              - column:
+                  name: TraceId
+                  type: varchar(255)
+                  defaultValue: migration
+                  constraints:
+                    nullable: false
+
+        - addColumn:
+            tableName: SpareParts
+            columns:
+              - column:
+                  name: ComponentOptionId
+                  type: uuid
+              - column:
+                  name: Quantity
+                  type: int
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ReservedQuantity
+                  type: int
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+
+        - addUniqueConstraint:
+            tableName: SpareParts
+            columnNames: ComponentOptionId
+            constraintName: UQ_SpareParts_ComponentOptionId
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777881" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "17in Standard wheel kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777882" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "19in M Sport wheel kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444442" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777883" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Automatic 8AT transmission kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777884" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Manual 6MT transmission kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444444" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777885" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Sport Leather steering wheel" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777886" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "M Sport heated steering wheel" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444446" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777887" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Fabric Graphite interior kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }
+
+        - insert:
+            tableName: SpareParts
+            columns:
+              - column: { name: Id, value: "77777777-7777-7777-7777-777777777888" }
+              - column: { name: CreatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: UpdatedAt, valueDate: "2026-03-22T00:00:00" }
+              - column: { name: Removed, valueBoolean: false }
+              - column: { name: Name, value: "Leather Dakota interior kit" }
+              - column: { name: Price, valueNumeric: 1.00 }
+              - column: { name: Description, value: "Configurator stock item" }
+              - column: { name: Manufacturer, value: "DEALERSHIP" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444448" }
+              - column: { name: Quantity, valueNumeric: 10 }
+              - column: { name: ReservedQuantity, valueNumeric: 0 }

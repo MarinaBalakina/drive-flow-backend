@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-car-status
+      author: marina
+      changes:
+        - addColumn:
+            tableName: Car
+            columns:
+              - column:
+                  name: Status
+                  type: varchar(30)
+                  defaultValue: AVAILABLE
+                  constraints:
+                    nullable: false
+        - update:
+            tableName: Car
+            columns:
+              - column:
+                  name: Status
+                  value: SOLD
+            where: '"Available" = false'
+        - dropColumn:
+            tableName: Car
+            columnName: Available

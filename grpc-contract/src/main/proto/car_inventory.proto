@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.dealership.grpc.car";
+option java_outer_classname = "CarInventoryProto";
+
+service CarInventoryService {
+  rpc GetAvailableCars(GetAvailableCarsRequest) returns (GetAvailableCarsResponse);
+  rpc GetAvailableCarById(GetAvailableCarByIdRequest) returns (GetAvailableCarByIdResponse);
+}
+
+message GetAvailableCarsRequest {
+}
+
+message GetAvailableCarsResponse {
+  repeated Car cars = 1;
+}
+
+message GetAvailableCarByIdRequest {
+    string id = 1;
+}
+
+message GetAvailableCarByIdResponse {
+    Car car = 1;
+}
+
+message Car {
+  string id = 1;
+  string price = 2;
+  string brand = 3;
+  string model = 4;
+  string status = 5;
+  bool test_drive_enabled = 6;
+  CarDetails details = 7;
+}
+
+message CarDetails {
+  string body_type = 1;
+  string fuel_type = 2;
+  int32 engine_power = 3;
+  double engine_capacity = 4;
+  string transmission = 5;
+  string drive_type = 6;
+  string color = 7;
+}

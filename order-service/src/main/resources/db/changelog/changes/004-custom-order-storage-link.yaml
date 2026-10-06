@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-custom-order-storage-link
+      author: marina
+      changes:
+        - addColumn:
+            tableName: CustomOrder
+            columns:
+              - column:
+                  name: CarModelId
+                  type: uuid
+
+        - update:
+            tableName: CustomOrder
+            columns:
+              - column:
+                  name: ModelKey
+                  value: Porsche 911 Carrera 4 GTS
+              - column:
+                  name: CarModelId
+                  value: 22222222-2222-2222-2222-222222222221
+            where: '"Id" = ''dddddddd-dddd-dddd-dddd-ddddddddddd1'''
+
+        - update:
+            tableName: CustomOrder
+            columns:
+              - column:
+                  name: ModelKey
+                  value: Mercedes-AMG C 63 S E Performance
+              - column:
+                  name: CarModelId
+                  value: 22222222-2222-2222-2222-222222222222
+            where: '"Id" = ''dddddddd-dddd-dddd-dddd-ddddddddddd2'''
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd1" }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd1" }
+              - column: { name: ComponentType, value: "INTERIOR" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444448" }
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd2" }
+              - column: { name: ComponentType, value: "WHEELS" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444441" }
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd2" }
+              - column: { name: ComponentType, value: "TRANSMISSION" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444443" }
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd2" }
+              - column: { name: ComponentType, value: "STEERING_WHEEL" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444445" }
+
+        - insert:
+            tableName: CustomOrder_SelectedOptions
+            columns:
+              - column: { name: CustomOrderId, value: "dddddddd-dddd-dddd-dddd-ddddddddddd2" }
+              - column: { name: ComponentType, value: "INTERIOR" }
+              - column: { name: ComponentOptionId, value: "44444444-4444-4444-4444-444444444447" }
+
+        - addNotNullConstraint:
+            tableName: CustomOrder
+            columnName: CarModelId
+            columnDataType: uuid
